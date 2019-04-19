@@ -3,10 +3,6 @@ const userOutput = document.querySelector("#output");
 const cardArr = [];
 let cardCount = 1;
 
-const appendCard = (card) => {
-
-}
-
 createBtn.addEventListener("click", () => {
 
   let userInput = document.querySelector("#userInput");
