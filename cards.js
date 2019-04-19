@@ -6,14 +6,14 @@ const deleteBtns = [];
 let cardCount = 1;
 
 
-createBtn.addEventListener("click", event => {
+createBtn.addEventListener("click", () => {
 
   const userInput = document.querySelector("#userInput").value;
   userOutput.innerHTML += `
       <article class="card" id="card--${cardCount}">
         <div>${userInput}</div>
         <div>
-            <button id="delete--${cardCount}">Delete This Card</button>
+            <button id="delete--${cardCount}" onclick="removeCard('output', 'card--${cardCount}')">Delete This Card</button>
         </div>
       </article>
   `
@@ -24,9 +24,16 @@ createBtn.addEventListener("click", event => {
   cardCount++;
 });
 
+const removeCard = (parentID, childID) => {
+  let child = document.getElementById(childID);
+  let parent = document.getElementById(parentID);
+  parent.removeChild(child);
+}
+
 // deleteBtns.forEach((btn) => {
 //   let splitbtn = e.target.id.split("-");
 // })
 
-// use the article that they are selected in as a parent to removeChild()
+// use the article that they are selected in as a parent to removeChild()?
 
+// removeElement("output", "card--")
