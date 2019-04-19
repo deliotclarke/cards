@@ -1,9 +1,11 @@
 const createBtn = document.querySelector("#create");
 const userOutput = document.querySelector("#output");
 const cardArr = [];
-const deleteBtns = [];
 let cardCount = 1;
 
+const appendCard = (card) => {
+
+}
 
 createBtn.addEventListener("click", () => {
 
@@ -18,31 +20,24 @@ createBtn.addEventListener("click", () => {
   let button = document.createElement('button');
   button.id = `delete--${cardCount}`;
   button.textContent = "DELETE ME, BRO";
-  button.addEventListener('click', () => {
-    console.log('delete stuff.... figure it out');
+
+  //below deletes card
+  button.addEventListener('click', (e) => {
+    let cardNum = e.target.id.split('-');
+    cardArr.forEach((card) => {
+      if (cardNum[2] === card.id.split('-')[2]) {
+        userOutput.removeChild(card);
+      }
+    })
+
   });
 
   //below appends card and it's contents
   newCard.appendChild(textArea);
   newCard.appendChild(button);
   userOutput.appendChild(newCard);
-  deleteBtns.push(button);
   cardArr.push(newCard);
   cardCount++;
   userInput.value = " ";
   userInput.focus();
 });
-
-const removeCard = (parentID, childID) => {
-  let child = document.getElementById(childID);
-  let parent = document.getElementById(parentID);
-  parent.removeChild(child);
-}
-
-// deleteBtns.forEach((btn) => {
-//   let splitbtn = e.target.id.split("-");
-// })
-
-// use the article that they are selected in as a parent to removeChild()?
-
-// removeElement("output", "card--")
