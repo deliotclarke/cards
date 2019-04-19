@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 2px solid black;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
